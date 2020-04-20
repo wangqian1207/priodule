@@ -1,0 +1,307 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Priodule</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/main.css" type="text/css">
+		<link rel="stylesheet" href="css/tablet.css" media="screen and (max-width: 1000px) and (min-width: 600px)">
+
+		<style>
+			ol li {
+				text-align: center;
+			}
+			ol li textarea {
+				height: auto;
+				width: 90%;
+				border: none; 
+				border-bottom: 2px solid green; 
+				border-radius: 0;
+				margin-top: 5px;
+			}
+			table tr th {
+				text-align: center;
+			}
+			table tr td {
+				text-align: center;
+			}
+			.paper {
+				left: 2.5%;
+				position: absolute;
+				height: 550px;
+				width: 95%;
+				background: rgba(255,255,255,0.9);
+				box-shadow: 0px 0px 5px 0px #888;
+			}
+			.paper::before {
+			  	content: '';
+			  	position: absolute;
+			  	left: 45px;
+			  	height: 100%;
+			  	width: 2px;
+			  	background: rgba(255,0,0,0.4);
+			}
+			.lines {
+				margin-top: 40px;
+				height: calc(100% - 40px);
+				width: 100%;
+				background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
+			}
+			.text {
+			  	position: absolute;
+				top: 65px;
+				left: 55px;
+				bottom: 10px;
+				right: 10px;
+				line-height: 25px;
+				font-family: 'Indie Flower';
+				overflow: hidden;
+				outline: none;
+			}
+			#save {
+				float: right;
+			}
+			#save:active {
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="">
+			<div id="schedule" class="" style="display: block;">
+				<nav>
+					<p>Priodule</p>
+					<ul>
+						<li id="one" class="current" style="margin-left: -40px;"><a style="color: #404040;">Mode 1</a></li>
+						<li id="two" style="margin-left: -4px;"><a>Mode 2</a></li>
+					</ul>
+				</nav>
+				<div class="page">
+					<table cellpadding="2" cellspacing="0" border="2" width="100%" id="table">
+						<tr>
+							<th> </th>
+							<th>SUN</th>
+							<th>MON</th>
+							<th>TUE</th>
+							<th>WED</th>
+							<th>THU</th>
+							<th>FRI</th>
+							<th>SAT</th>
+						</tr>
+						<tr>
+							<th>1</th>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr>
+							<th>2</th>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr>
+							<th>3</th>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr>
+							<th>4</th>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr>
+							<th>5</th>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr>
+							<th>6</th>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+						<tr>
+							<th>7</th>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+							<td contenteditable></td>
+						</tr>
+					</table>
+					<button id="save" onclick="save()">Save</button>
+				</div>
+							
+			</div>
+			<div id="plan" class="" style="display: none;">
+				<nav>
+					<p>Priodule</p>
+					<h4 contenteditable>XX Plan</h4>
+				</nav>
+				<div class="page">
+					<ol>
+						<li><textarea rows="1" type="text" style="height: auto;"></textarea></li>
+						<li><textarea rows="1" type="text"></textarea></li>
+						<li><textarea rows="1" type="text"></textarea></li>
+					</ol>
+					<div class="paper">
+					  	<div class="lines">
+					    	<div class="text" contenteditable spellcheck="false">
+					      	You can edit this text!</div>
+					  	</div>
+					</div>
+				</div>
+			</div>
+			<div id="friends" class="" style="display: none;">
+				<nav>
+					<p>Priodule</p>
+				</nav>
+				<p>fs</p>
+			</div>
+			<div id="user" class="" style="display: none;">
+				<nav>
+					<p>Priodule</p>
+				</nav>
+				<p>f</p>
+			</div>
+		</div>
+			
+		<footer class="">
+			<ul class="">
+				<li class="active" style="margin-left: -40px;">
+					<a class="on" id="first">
+						<span class="glyphicon glyphicon-calendar"></span>
+						<p>Schedule</p>
+					</a>
+				</li>
+				<li>
+					<a id="second" style="text-decoration: none;">
+						<span class="glyphicon glyphicon-list"></span>
+						<p>Plan</p>
+					</a>
+				</li>
+				<li>
+					<a id="third" style="text-decoration: none;">
+						<span class="glyphicon glyphicon-globe"></span>
+						<p>Friend</p>
+					</a>
+				</li>
+				<li>
+					<a id="fourth" style="text-decoration: none;">
+						<span class="glyphicon glyphicon-user"></span>
+						<p>Person</p>
+					</a>
+				</li>
+			</ul>
+		</footer>
+
+		<script>
+			$('#first').click(function(){
+			    $('#schedule').css('display', 'block');
+			    $('#plan').css('display', 'none');
+			    $('#friends').css('display', 'none');
+			    $('#user').css('display', 'none');
+			});
+			$('#second').click(function(){
+			    $('#plan').css('display', 'block');
+			    $('#schedule').css('display', 'none');
+			    $('#friends').css('display', 'none');
+			    $('#user').css('display', 'none');
+			});
+			$('#third').click(function(){
+			    $('#plan').css('display', 'none');
+			    $('#schedule').css('display', 'none');
+			    $('#friends').css('display', 'block');
+			    $('#user').css('display', 'none');
+			});
+			$('#fourth').click(function(){
+			    $('#plan').css('display', 'none');
+			    $('#schedule').css('display', 'none');
+			    $('#friends').css('display', 'none');
+			    $('#user').css('display', 'block');
+			});
+			$("footer ul li a").on('click', function(){
+				$('footer ul li a').removeClass('on');
+				$(this).addClass('on');
+			});
+			$('#one').click(function(){
+				$('#one a').css('color', '#404040');
+				$('#two a').css('color', 'white');
+			    $('#one').addClass('current');
+				$('#two').removeClass('current');
+			});
+			$('#two').click(function(){
+				$('#one a').css('color', 'white');
+				$('#two a').css('color', '#404040');
+			    $('#two').addClass('current');
+				$('#one').removeClass('current');
+			});
+			
+		</script>
+		<script>
+			/*var textarea = document.querySelectorAll('textarea'), i;
+			for (i = 0; i < textarea.length; ++i) {
+				textarea[i].addEventListener('keydown', autosize);
+			}       
+			function autosize(){
+			  var el = this;
+			  setTimeout(function(){
+			    el.style.cssText = 'height:auto; padding:0';
+			    // for box-sizing other than "content-box" use:
+			    // el.style.cssText = '-moz-box-sizing:content-box';
+			    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+			  },0);
+			}*/
+		</script>
+		<script>
+			function save() {
+				for (var r = 1; r < 7; r++) { 
+					for (var c = 1; c < 7; c++) {
+						var content = document.getElementById("table").rows[r].cells[c].innerText;
+						var i = r.toString() + c.toString();
+					    localStorage.setItem(i, content);				    												document.getElementById("table").rows[r].cells[c].innerText = localStorage.getItem(i);
+				    }
+				}
+			}
+			for (var r = 1; r < 7; r++) { 
+				for (var c = 1; c < 7; c++) {
+					var i = r.toString() + c.toString();
+			    	document.getElementById("table").rows[r].cells[c].innerText = localStorage.getItem(i);
+			    }
+			}
+		</script>
+	</body>
+</html>
